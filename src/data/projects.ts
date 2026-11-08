@@ -16,7 +16,8 @@ export interface Project {
   liveDemo?: string;
   liveDemoLabel?: string;
   docs?: ProjectLink[];
-  visual: ProjectVisual;
+  visual?: ProjectVisual;
+  image?: { src: string; alt: string };
 }
 
 export const projects: Project[] = [
@@ -72,5 +73,19 @@ export const projects: Project[] = [
       },
     ],
     visual: "backend",
+  },
+  {
+    slug: "pofo",
+    name: "POFO",
+    category: "Creative Digital Studio Landing Page",
+    description:
+      "A responsive landing page for a fictional creative digital studio, featuring services, a filterable portfolio gallery, testimonials, and a contact form.",
+    technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5"],
+    github: "https://github.com/Maha-Elsheikhe/POFO",
+    liveDemo: "https://pofo-wheat.vercel.app/",
+    image: {
+      src: "/projects/pofo.jpg",
+      alt: "POFO landing page hero section with the headline “Awesome Design”",
+    },
   },
 ];

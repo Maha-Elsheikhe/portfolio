@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ExternalLink, FileText } from "lucide-react";
 import type { Project } from "@/data/projects";
 import { GithubIcon } from "./icons";
@@ -42,7 +43,19 @@ export default function ProjectCard({ project }: { project: Project }) {
             : "aspect-[16/10] w-full"
         }
       >
-        <ProjectVisual type={project.visual} />
+        {project.image ? (
+          <div className="relative h-full w-full overflow-hidden">
+            <Image
+              src={project.image.src}
+              alt={project.image.alt}
+              fill
+              sizes="(min-width: 1152px) 560px, (min-width: 768px) 50vw, 100vw"
+              className="object-cover object-top"
+            />
+          </div>
+        ) : (
+          project.visual && <ProjectVisual type={project.visual} />
+        )}
       </div>
 
       <div className="flex flex-1 flex-col p-6 md:p-8">
